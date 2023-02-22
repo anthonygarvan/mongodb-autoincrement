@@ -111,7 +111,6 @@ function getNextId(db, collectionName, fieldName, callback) {
 
     collection.findOneAndUpdate(
         {_id: collectionName, field: fieldName},
-        null,
         {$inc: {seq: step}},
         {upsert: true, new: true},
         function (err, result) {
