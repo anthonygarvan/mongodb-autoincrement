@@ -109,7 +109,7 @@ function getNextId(db, collectionName, fieldName, callback) {
     var collection = db.collection(defaultSettings.collection);
     var step = getOption(collectionName, "step");
 
-    collection.findAndModify(
+    collection.findOneAndUpdate(
         {_id: collectionName, field: fieldName},
         null,
         {$inc: {seq: step}},
